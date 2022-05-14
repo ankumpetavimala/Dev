@@ -1,0 +1,41 @@
+1. without adding to staging area how to revert back
+Be in master branch
+Add a new file with some content in local repository
+go to git bash and issue command "git clean -f"
+Go to local repository and verify the file removed
+give git status and verify
+
+2. After adding to staging area how to revert back
+Be in master branch
+Go to local repo and create a new file file2.txt with some content.
+Go to git bash and issue "git add ."
+give git status
+git reset file2.txt
+git status
+git clean -f
+git status
+
+3. After commit how to revert
+Go to local repo
+Create a new file file2.txt with some contents
+go to git bash and give git add .
+git commit -m "Second commit - added file2"
+git reset --soft HEAD^ (To revert commit)
+git reset file2.txt          ( To remove from staging area)
+git clean -f                  ( To clear from working area)
+git status
+
+4. After push how to revert
+Go to local repo and add a new file file3.txt
+Go to git bash and issue
+git add .
+git commit -m "Added file - file3"
+git push -u origin master
+git log
+(Note down commit id of the last push)
+git revert <Commit id of last push>
+git push -u origin master
+go to remote and refresh and check
+
+
+Note: git restore filename
